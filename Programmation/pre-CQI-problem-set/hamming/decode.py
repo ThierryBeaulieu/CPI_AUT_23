@@ -54,10 +54,16 @@ class Decoder:
             binaryResult = str(remainder) + binaryResult
             binaryInput = binaryInput // 2
         return binaryResult
+    
+    def convertBinaryToMatrix(self, binaryString):
+        rowAndColumnLength = 4
+        return [binaryString[i:i + rowAndColumnLength] for i in range(0, len(binaryString), rowAndColumnLength)]
        
     def decode(self, input_string):
         binaryAndBase17 = self.get_binary_and_base17(input_string)
-        base17ToParse = self.convertToIntermediateFormat(binaryAndBase17[1])
+        base17InDecimalFormat = self.convertToIntermediateFormat(binaryAndBase17[1])
+        base17InBinaryFormat = self.convertDecimalToBinary(base17InDecimalFormat)
+
 
 
 

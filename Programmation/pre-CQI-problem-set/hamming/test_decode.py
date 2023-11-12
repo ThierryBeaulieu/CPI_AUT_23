@@ -58,6 +58,11 @@ class TestDecodeFunction(unittest.TestCase):
         result = decoder.convertDecimalToBinary(520256568935960080136)
         self.assertEqual(result, "111000011010000000010101000010000001010000011011011001110111100001000")
     
+    def test_convert_binary_to_matrix_1(self):
+        decoder = Decoder()
+        result = decoder.convertBinaryToMatrix("0001100110110110")
+        self.assertEqual(result,  ["0001", "1001", "1011", "0110"])
+    
     
     # def test_decode_Hello_world(self):
     #     decoder = Decoder()
