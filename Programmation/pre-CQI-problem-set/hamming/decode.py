@@ -36,7 +36,28 @@ class Decoder:
                 newFormat = newFormat + input_string[i]
                 i += 1
         return newFormat
+    
+    # accepts only the strings already converted "CQI" -> "g"
+    def inverse(self, input_string):
+        stringInversed = ""
+        i = 0
+        while i < len(input_string):
+                index = len(input_string) -1 - i
+                stringInversed = stringInversed + input_string[index]
+                i += 1
+        return stringInversed
+    
+    def convertToDecimal(self, input_string):
+        stringInversed = ""
+        i = 0
+        while i < len(input_string):
+                index = len(input_string) -1 - i
+                stringInversed = stringInversed + input_string[index]
+                i += 1
+        return stringInversed
 
+    def convertToBinary(self, inputString):
+         return "0"
        
     def decode(self, input_string):
         binaryAndBase17 = self.get_binary_and_base17(input_string)

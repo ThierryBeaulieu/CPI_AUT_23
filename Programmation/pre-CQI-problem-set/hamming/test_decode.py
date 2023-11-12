@@ -13,11 +13,16 @@ class TestDecodeFunction(unittest.TestCase):
         result = decoder.convertToIntermediateFormat("CQIa14bc0CQI429cdeCQI")
         self.assertEqual(result, "ga14bc0g429cdeg")
        
-
     def test_convert_to_decimal(self):
         decoder = Decoder()
         result = decoder.convertToDecimal("a14bc0429cde")
         self.assertEqual(result, 345290971773084)
+
+    def test_inverse(self):
+        decoder = Decoder()
+        result = decoder.inverse("abc")
+        self.assertEqual(result, "cba")
+
 
     def test_convert_to_binary(self):
         decoder = Decoder()
