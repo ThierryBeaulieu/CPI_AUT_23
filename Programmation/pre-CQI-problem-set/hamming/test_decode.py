@@ -62,7 +62,7 @@ class TestDecodeFunction(unittest.TestCase):
     def test_convert_binary_to_permutation_matrix(self):
         decoder = Decoder()
         result = decoder.convertBinaryToPermutationMatrix("0001100110110110")
-        matrix_array = np.array([[0,0,0,1], [1,0,0,1], [1,0,1,1], [0,1,1,0]])
+        matrix_array = np.array([[-1,1,0,0], [0,1,-1,1], [0,-1,1,0], [1,0,0,0]])
         self.assertTrue(np.array_equal(result, matrix_array))
 
     def test_convert_binary_into_matrix(self):
