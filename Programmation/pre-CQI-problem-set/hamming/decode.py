@@ -57,15 +57,16 @@ class Decoder:
     
     def convertBinaryToMatrix(self, binaryString):
         rowAndColumnLength = 4
-        return [binaryString[i:i + rowAndColumnLength] for i in range(0, len(binaryString), rowAndColumnLength)]
+        matrix = [[binaryString[i:i + rowAndColumnLength]] for i in range(0, len(binaryString), rowAndColumnLength)]
+        return np.array(matrix)
+    
+    # def transpose(self, binariesCharacters, transposeMatrix):
+
        
     def decode(self, input_string):
         binaryAndBase17 = self.get_binary_and_base17(input_string)
         base17InDecimalFormat = self.convertToIntermediateFormat(binaryAndBase17[1])
         base17InBinaryFormat = self.convertDecimalToBinary(base17InDecimalFormat)
-
-
-
 
 if __name__ == "__main__":
     decoder = Decoder()

@@ -1,5 +1,6 @@
 # test_my_module.py
 import unittest
+import numpy as np
 from decode import Decoder
 
 class TestDecodeFunction(unittest.TestCase):
@@ -61,7 +62,16 @@ class TestDecodeFunction(unittest.TestCase):
     def test_convert_binary_to_matrix_1(self):
         decoder = Decoder()
         result = decoder.convertBinaryToMatrix("0001100110110110")
-        self.assertEqual(result,  ["0001", "1001", "1011", "0110"])
+        matrix = [['0001'], ['1001'], ['1011'], ['0110']]
+        matrix_array = np.array(matrix)
+        self.assertTrue(np.array_equal(result, matrix_array))
+
+    # def test_transpose_matrix(self):
+    #     decoder = Decoder()
+    #     matrixMultiplicative = decoder.convertBinaryToMatrix("0001100110110110")
+    #     binaryToDecode = decoder.convertBinaryToMatrix("0001100110110110")
+    #     # decoder.
+    #     self.assertEqual(result,  ["0001", "1001", "1011", "0110"])
     
     
     # def test_decode_Hello_world(self):
