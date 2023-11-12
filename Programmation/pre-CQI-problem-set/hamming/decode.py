@@ -86,16 +86,18 @@ class Decoder:
         return asciiChars
 
     def convertStringToAscii(self, input_array_of_strings: list[int]):
-        asciiChars = []
+        asciiChars = ""
         for binary in input_array_of_strings:
             decimal_value = int(binary, 2)
             ascii_character = chr(decimal_value)
-            print(ascii_character)
-            asciiChars.append(ascii_character)
-        return ascii_character
+            asciiChars = asciiChars + ascii_character
+        return asciiChars
     
     def concatenate(self, arrayOfAsciis):
-        return ''.join(arrayOfAsciis)
+        result = ""
+        for char in arrayOfAsciis:
+            result = result + char
+        return result
 
     def decode(self, input_string):
         # ['0100000100101000', 'ab082c29CQI']
@@ -121,12 +123,9 @@ class Decoder:
 
         # [[1,0,1,0], [0,1..]] = ['1010','01...]
         binariesStrignified = self.convertMatrixToStringsOfBinary(baseMatrix)
-        print(binariesStrignified)
 
         # ['1010','01...] -> ['a', 'b' ..]
         asciis = self.convertStringToAscii(binariesStrignified)
-
-        print(asciis)
 
         # ['a', 'b' ..] -> 'ab'
         return self.concatenate(asciis)
