@@ -1,15 +1,11 @@
 # test_my_module.py
 import unittest
-from decode import add
+from decode import decode
 
-class TestAddFunction(unittest.TestCase):
-    def test_add_positive_numbers(self):
-        result = add(2, 3)
-        self.assertEqual(result, 5)
-
-    def test_add_negative_numbers(self):
-        result = add(-2, -3)
-        self.assertEqual(result, -5)
+class TestDecodeFunction(unittest.TestCase):
+    def test_decode_Hello_world(self):
+        result = decode("0100000100101000:11d48ed9dCQIc6ab6c6147d845e586da03b9")
+        self.assertEqual(result, "Bonjour le monde!")
 
 if __name__ == '__main__':
     unittest.main()
