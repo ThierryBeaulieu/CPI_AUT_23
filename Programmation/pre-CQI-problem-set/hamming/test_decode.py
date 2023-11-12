@@ -52,6 +52,12 @@ class TestDecodeFunction(unittest.TestCase):
         decoder = Decoder()
         result = decoder.convertDecimalToBinary(23984203984)
         self.assertEqual(result, "10110010101100100011110100011010000")
+
+    def test_convert_to_binary_3(self):
+        decoder = Decoder()
+        result = decoder.convertDecimalToBinary(520256568935960080136)
+        self.assertEqual(result, "111000011010000000010101000010000001010000011011011001110111100001000")
+    
     
     # def test_decode_Hello_world(self):
     #     decoder = Decoder()
