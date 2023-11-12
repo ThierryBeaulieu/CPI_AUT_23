@@ -41,7 +41,7 @@ class Decoder:
     
     # accepts only the strings already converted "CQI" -> "g"
     def convertToDecimal(self, input_string):
-        return sum(self.base_17_to_decimal[digit] * 17**i for i, digit in enumerate(input_string[::-1]))
+        return sum(self.base_17_to_decimal[value] * (self.base17 ** i) for i, value in enumerate(input_string[::-1]))
 
     def convertToBinary(self, inputString):
          return "0"
