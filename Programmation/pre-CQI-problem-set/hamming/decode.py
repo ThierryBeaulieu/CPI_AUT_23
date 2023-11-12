@@ -20,6 +20,9 @@ class Decoder:
             "f":"15",
             "CQI":"16"
             }
+        
+    def get_binary_and_base17(self, input_string):
+        return input_string.split(":")
        
     def decode(self, input_string):
         charactersFound = ""
