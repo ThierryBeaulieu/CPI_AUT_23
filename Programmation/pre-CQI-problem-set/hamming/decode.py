@@ -1,6 +1,4 @@
+class Decoder:
+    def decode(self, incomingLine):
+        return "Bonjour le monde!"
 
-def decode(incomingLine):
-    return "Bonjour le monde!"
-
-if __name__ == "__main__":
-    print("Hello worlds")
