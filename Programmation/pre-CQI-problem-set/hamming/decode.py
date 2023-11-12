@@ -128,11 +128,6 @@ class Decoder:
         return self.concatenate(asciis)
 
 
-
-
-
-
-
 if __name__ == "__main__":
     decoder = Decoder()
-    result = decoder.convertToDecimal("ab")
+    result = decoder.decode("0100000100101000:11d48ed9dCQIc6ab6c6147d845e586da03b9")
