@@ -59,9 +59,9 @@ class TestDecodeFunction(unittest.TestCase):
         result = decoder.convertDecimalToBinary(520256568935960080136)
         self.assertEqual(result, "111000011010000000010101000010000001010000011011011001110111100001000")
     
-    def test_convert_binary_to_matrix_1(self):
+    def test_convert_binary_to_permutation_matrix(self):
         decoder = Decoder()
-        result = decoder.convertBinaryToMatrix("0001100110110110")
+        result = decoder.convertBinaryToPermutationMatrix("0001100110110110")
         matrix = [['0001'], ['1001'], ['1011'], ['0110']]
         matrix_array = np.array(matrix)
         self.assertTrue(np.array_equal(result, matrix_array))

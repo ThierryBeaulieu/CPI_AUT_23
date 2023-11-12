@@ -55,7 +55,7 @@ class Decoder:
             binaryInput = binaryInput // 2
         return binaryResult
     
-    def convertBinaryToMatrix(self, binaryString):
+    def convertBinaryToPermutationMatrix(self, binaryString):
         rowAndColumnLength = 4
         matrix = [[binaryString[i:i + rowAndColumnLength]] for i in range(0, len(binaryString), rowAndColumnLength)]
         return np.array(matrix)
