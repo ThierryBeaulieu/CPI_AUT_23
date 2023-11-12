@@ -43,8 +43,17 @@ class Decoder:
     def convertToDecimal(self, input_string):
         return sum(self.base_17_to_decimal[value] * (self.base17 ** i) for i, value in enumerate(input_string[::-1]))
 
-    def convertToBinary(self, inputString):
-         return "0"
+    def convertDecimalToBinary(self, binaryInput):
+        binaryResult = ""
+
+        if binaryInput == 0:
+            return "0"
+               
+        while binaryInput > 0:
+            remainder = binaryInput % 2
+            binaryResult = str(remainder) + binaryResult
+            binaryInput = binaryInput // 2
+        return binaryResult
        
     def decode(self, input_string):
         binaryAndBase17 = self.get_binary_and_base17(input_string)
