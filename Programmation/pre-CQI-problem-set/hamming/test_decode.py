@@ -78,7 +78,6 @@ class TestDecodeFunction(unittest.TestCase):
         result = decoder.applyTranspose(binaryMatrix, transpose)
         self.assertTrue(np.array_equal(result, binaryMatrix))
 
-
     def test_apply_transpose_2(self):
         decoder = Decoder()
         binaryMatrix = np.array([[0,0,0,1], [1,0,0,1], [1,0,1,1]])
@@ -86,6 +85,12 @@ class TestDecodeFunction(unittest.TestCase):
         resultExpected = np.array([[1,0,0,0], [0,1,0,0], [0,0,1,0]])
         result = decoder.applyTranspose(binaryMatrix, transpose)
         self.assertTrue(np.array_equal(result, resultExpected))
+
+    def test_convert_binary_to_ascii(self):
+        decoder = Decoder()
+        binaryMatrix = np.array([[1,0,0,0], [0,0,0,1], [1,0,0,0], [0,1,0,1]])
+        result = decoder.convertToAscii(binaryMatrix)
+        self.assertTrue(result, "ab")
 
     # def test_transpose_matrix(self):
     #     decoder = Decoder()
