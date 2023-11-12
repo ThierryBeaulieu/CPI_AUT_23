@@ -69,6 +69,10 @@ class Decoder:
         return np.dot(binaryMatrix, permutationMatrix)
     
     def convertMatrixToStringsOfBinary(self, binaryMatrix):
+
+        print("here the matrix")
+        print(binaryMatrix)
+
         if len(binaryMatrix) % 2 != 0:
             raise Exception("Error, impossible to convert binary to ascii")
         
@@ -77,7 +81,7 @@ class Decoder:
         i = 0
         while i < len(binaryMatrix):
             for binaryValue in binaryMatrix[i]:
-                asciiChar = asciiChar + str(binaryValue)
+                asciiChar = asciiChar + str(int(binaryValue))
             if i % 2 == 1:
                 asciiChars.append(asciiChar)
                 asciiChar = ""
@@ -85,7 +89,7 @@ class Decoder:
         
         return asciiChars
 
-    def convertStringToAscii(self, input_array_of_strings):
+    def convertStringToAscii(self, input_array_of_strings: list[int]):
         asciiChars = []
         for binary in input_array_of_strings:
             decimal_value = int(binary, 2)
@@ -120,6 +124,9 @@ class Decoder:
 
         # [[1,0,1,0], [0,1..]] = ['1010','01...]
         binariesStrignified = self.convertMatrixToStringsOfBinary(baseMatrix)
+
+        print("these are the binaries strignified")
+        print(binariesStrignified)
 
         # ['1010','01...] -> ['a', 'b' ..]
         asciis = self.convertStringToAscii(binariesStrignified)
