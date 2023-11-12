@@ -103,5 +103,10 @@ class TestDecodeFunction(unittest.TestCase):
         result = decoder.decode("0100000100101000:11d48ed9dCQIc6ab6c6147d845e586da03b9")
         self.assertEqual(result, "Bonjour le monde!")
 
+    # def test_decode_Hello_world_2(self):
+    #     decoder = Decoder()
+    #     result = decoder.decode("000010010000001000000001100000000100:530CQI9e4560a7c1266d8CQIb5fCQI8dCQIa328c3ecfCQId91b763eb0dCQIaa4d2424c1fCQId7fd31f3134806b9695e309dCQIced13cf9a43549fa2183742e7c63")
+    #     # self.assertEqual(result, "")
+
 if __name__ == '__main__':
     unittest.main()

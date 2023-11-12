@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 class Decoder:
 
@@ -56,7 +57,7 @@ class Decoder:
         return binaryResult
     
     def convertBinaryToPermutationMatrix(self, binary: str):
-        rowAndColumnLength = 4
+        rowAndColumnLength = int(math.sqrt(len(binary)))
         matrix = [[int(binary[i + j]) for j in range(rowAndColumnLength)] for i in range(0, len(binary), rowAndColumnLength)]
         return np.array(matrix)
     
@@ -134,3 +135,4 @@ class Decoder:
 if __name__ == "__main__":
     decoder = Decoder()
     result = decoder.decode("0100000100101000:11d48ed9dCQIc6ab6c6147d845e586da03b9")
+    print(result)
