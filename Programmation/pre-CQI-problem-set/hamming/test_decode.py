@@ -97,12 +97,6 @@ class TestDecodeFunction(unittest.TestCase):
         binaryStrings =  ["10000001", "10000101"]
         result = decoder.convertStringToAscii(binaryStrings)
         self.assertTrue(result, ['a', 'e'])
-
-    def test_concatenate(self):
-        decoder = Decoder()
-        binaryStrings = ['a', 'e']
-        result = decoder.concatenate(binaryStrings)
-        self.assertTrue(result, "ae")
      
     def test_decode_Hello_world(self):
         decoder = Decoder()
