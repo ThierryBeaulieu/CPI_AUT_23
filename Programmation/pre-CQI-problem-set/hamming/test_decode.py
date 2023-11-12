@@ -86,10 +86,10 @@ class TestDecodeFunction(unittest.TestCase):
         result = decoder.applyTranspose(binaryMatrix, transpose)
         self.assertTrue(np.array_equal(result, resultExpected))
 
-    def test_convert_binary_to_ascii(self):
+    def test_convert_binary_to_strings_of_binary(self):
         decoder = Decoder()
         binaryMatrix = np.array([[1,0,0,0], [0,0,0,1], [1,0,0,0], [0,1,0,1]])
-        result = decoder.convertToAscii(binaryMatrix)
+        result = decoder.convertMatrixToStringsOfBinary(binaryMatrix)
         self.assertTrue(result, ["10000001", "10000101"])
 
     # def test_transpose_matrix(self):

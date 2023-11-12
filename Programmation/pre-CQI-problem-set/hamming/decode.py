@@ -68,7 +68,7 @@ class Decoder:
     def applyTranspose(self, binaryMatrix, permutationMatrix):
         return np.dot(binaryMatrix, permutationMatrix)
     
-    def convertToAscii(self, binaryMatrix):
+    def convertMatrixToStringsOfBinary(self, binaryMatrix):
         if len(binaryMatrix) % 2 != 0:
             raise Exception("Error, impossible to convert binary to ascii")
         
