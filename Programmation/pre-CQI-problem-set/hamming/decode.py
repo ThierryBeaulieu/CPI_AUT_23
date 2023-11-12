@@ -1,7 +1,7 @@
 class Decoder:
 
     def __init__(self):
-        self.base10 = 10
+        self.base17 = 17
         self.base_17_to_binary = {
             "0": 0,
             "1": 1,
@@ -19,7 +19,7 @@ class Decoder:
             "d": 13,
             "e": 14,
             "f": 15,
-            "CQI": 16,
+            "g": 16,
             }
         
     def get_binary_and_base17(self, input_string):
@@ -38,23 +38,14 @@ class Decoder:
         return newFormat
     
     # accepts only the strings already converted "CQI" -> "g"
-    def inverse(self, input_string):
-        stringInversed = ""
-        i = 0
-        while i < len(input_string):
-                index = len(input_string) -1 - i
-                stringInversed = stringInversed + input_string[index]
-                i += 1
-        return stringInversed
-    
     def convertToDecimal(self, input_string):
-        stringInversed = ""
+        decimalValue = 0
         i = 0
         while i < len(input_string):
                 index = len(input_string) -1 - i
-                stringInversed = stringInversed + input_string[index]
+                decimalValue = decimalValue + self.base_17_to_binary[input_string[i]] * (self.base17 ** index) 
                 i += 1
-        return stringInversed
+        return decimalValue
 
     def convertToBinary(self, inputString):
          return "0"
@@ -67,4 +58,4 @@ class Decoder:
 
 if __name__ == "__main__":
     decoder = Decoder()
-    decoder.decode("11d48ed9dCQIc6ab6c6147d845e586da03b9")
+    result = decoder.convertToDecimal("ab")

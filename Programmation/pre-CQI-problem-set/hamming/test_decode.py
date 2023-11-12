@@ -13,21 +13,37 @@ class TestDecodeFunction(unittest.TestCase):
         result = decoder.convertToIntermediateFormat("CQIa14bc0CQI429cdeCQI")
         self.assertEqual(result, "ga14bc0g429cdeg")
        
-    # def test_convert_to_decimal(self):
-    #     decoder = Decoder()
-    #     result = decoder.convertToDecimal("a14bc0429cde")
-    #     self.assertEqual(result, 345290971773084)
-
-    def test_inverse(self):
+    def test_convert_to_decimal(self):
         decoder = Decoder()
-        result = decoder.inverse("abc")
-        self.assertEqual(result, "cba")
+        result = decoder.convertToDecimal("a14bc0429cde")
+        self.assertEqual(result, 345290971773084)
+
+    def test_convert_to_decimal(self):
+        decoder = Decoder()
+        result = decoder.convertToDecimal("aa")
+        self.assertEqual(result, 180)
+
+    def test_convert_to_decimal(self):
+        decoder = Decoder()
+        result = decoder.convertToDecimal("ab")
+        self.assertEqual(result, 181)
+
+    def test_convert_to_decimal(self):
+        decoder = Decoder()
+        result = decoder.convertToDecimal("g")
+        self.assertEqual(result, 16)
+
+    def test_convert_to_decimal(self):
+        decoder = Decoder()
+        result = decoder.convertToDecimal("abcdefg1234567890")
+        self.assertEqual(result, )
 
 
     # def test_convert_to_binary(self):
     #     decoder = Decoder()
     #     result = decoder.convertToBinary("a14bc0429cde")
     #     self.assertEqual(result, "10100110110101010111101101101001011110000001001101100")
+    
     # def test_decode_Hello_world(self):
     #     decoder = Decoder()
     #     result = decoder.decode("0100000100101000:11d48ed9dCQIc6ab6c6147d845e586da03b9")
