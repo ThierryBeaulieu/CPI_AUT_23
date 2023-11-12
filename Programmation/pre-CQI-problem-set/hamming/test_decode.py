@@ -98,6 +98,12 @@ class TestDecodeFunction(unittest.TestCase):
         result = decoder.convertStringToAscii(binaryStrings)
         self.assertTrue(result, ['a', 'e'])
 
+    def test_concatenate(self):
+        decoder = Decoder()
+        binaryStrings = ['a', 'e']
+        result = decoder.concatenate(binaryStrings)
+        self.assertTrue(result, "ae")
+
 
     # def test_transpose_matrix(self):
     #     decoder = Decoder()

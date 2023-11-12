@@ -92,6 +92,9 @@ class Decoder:
             ascii_character = chr(decimal_value)
             asciiChars.append(ascii_character)
         return ascii_character
+    
+    def concatenate(self, arrayOfAsciis):
+        return ''.join(arrayOfAsciis)
 
     def decode(self, input_string):
         binaryAndBase17 = self.get_binary_and_base17(input_string)
