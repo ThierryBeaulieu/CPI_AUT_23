@@ -58,7 +58,7 @@ class Decoder:
     def convertBinaryToPermutationMatrix(self, binary: str):
         rowAndColumnLength = 4
         matrix = [[int(binary[i + j]) for j in range(rowAndColumnLength)] for i in range(0, len(binary), rowAndColumnLength)]
-        return  np.linalg.inv(np.array(matrix))
+        return np.array(matrix)
     
     def convertBinaryToMatrix(self, binary: str):
         rowAndColumnLength = 4
@@ -90,6 +90,7 @@ class Decoder:
         for binary in input_array_of_strings:
             decimal_value = int(binary, 2)
             ascii_character = chr(decimal_value)
+            print(ascii_character)
             asciiChars.append(ascii_character)
         return ascii_character
     
@@ -120,9 +121,12 @@ class Decoder:
 
         # [[1,0,1,0], [0,1..]] = ['1010','01...]
         binariesStrignified = self.convertMatrixToStringsOfBinary(baseMatrix)
+        print(binariesStrignified)
 
         # ['1010','01...] -> ['a', 'b' ..]
         asciis = self.convertStringToAscii(binariesStrignified)
+
+        print(asciis)
 
         # ['a', 'b' ..] -> 'ab'
         return self.concatenate(asciis)
