@@ -62,21 +62,19 @@ class TestDecodeFunction(unittest.TestCase):
     def test_convert_binary_to_permutation_matrix(self):
         decoder = Decoder()
         result = decoder.convertBinaryToPermutationMatrix("0001100110110110")
-        matrix = [[0,0,0,1], [1,0,0,1], [1,0,1,1], [0,1,1,0]]
-        matrix_array = np.array(matrix)
+        matrix_array = np.array([[0,0,0,1], [1,0,0,1], [1,0,1,1], [0,1,1,0]])
         self.assertTrue(np.array_equal(result, matrix_array))
 
     def test_convert_binary_into_matrix(self):
         decoder = Decoder()
         result = decoder.convertBinaryToMatrix("000110011011011010110110")
-        matrix = ['0001', '1001', '1011', '0110', '1011', '0110']
-        matrix_array = np.array(matrix)
+        matrix_array = np.array([[0,0,0,1], [1,0,0,1], [1,0,1,1], [0,1,1,0], [1,0,1,1], [0,1,1,0]])
         self.assertTrue(np.array_equal(result, matrix_array))
 
     def test_apply_transpose(self):
         decoder = Decoder()
-        binaryMatrix = np.array(['0001', '1001', '1011', '0110', '1011', '0110'])
-        transpose = np.array([['1000'], ['0100'], ['0010'], ['0001']])
+        binaryMatrix = np.array([[1,1,0,1], [0,1,0,1], [0,1,1,0], [0,0,0,1]])
+        transpose = np.array([[1,0,0,0], [0,1,0,0], [0,0,1,0], [0,0,0,1]])
         result = decoder.applyTranspose(binaryMatrix, transpose)
         self.assertTrue(np.array_equal(result, binaryMatrix))
 
