@@ -63,9 +63,8 @@ class Decoder:
         return np.array(matrix)
     
     def convertBinaryToMatrix(self, binary: str):
-        width = 4
         height = 4
-        matrix = [[int(binary[i + j]) for j in range(width)] for i in range(0, len(binary), height)]
+        matrix = [[int(binary[i + j]) for j in range(self.matrixWidth)] for i in range(0, len(binary), height)]
         return np.array(matrix)
 
     def applyTranspose(self, binaryMatrix, permutationMatrix):
