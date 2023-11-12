@@ -55,12 +55,15 @@ class Decoder:
             binaryInput = binaryInput // 2
         return binaryResult
     
-    def convertBinaryToPermutationMatrix(self, binaryString):
+    def convertBinaryToPermutationMatrix(self, binary):
         rowAndColumnLength = 4
-        matrix = [[binaryString[i:i + rowAndColumnLength]] for i in range(0, len(binaryString), rowAndColumnLength)]
+        matrix = [[binary[i:i + rowAndColumnLength]] for i in range(0, len(binary), rowAndColumnLength)]
         return np.array(matrix)
     
-    # def transpose(self, binariesCharacters, transposeMatrix):
+    def convertBinaryToMatrix(self, binary):
+        rowAndColumnLength = 4
+        matrix = [binary[i:i + rowAndColumnLength] for i in range(0, len(binary), rowAndColumnLength)]
+        return np.array(matrix)
 
        
     def decode(self, input_string):

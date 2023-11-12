@@ -66,6 +66,14 @@ class TestDecodeFunction(unittest.TestCase):
         matrix_array = np.array(matrix)
         self.assertTrue(np.array_equal(result, matrix_array))
 
+    def test_convert_binary_into_matrix(self):
+        decoder = Decoder()
+        result = decoder.convertBinaryToMatrix("000110011011011010110110")
+        matrix = ['0001', '1001', '1011', '0110', '1011', '0110']
+        matrix_array = np.array(matrix)
+        self.assertTrue(np.array_equal(result, matrix_array))
+
+
     # def test_transpose_matrix(self):
     #     decoder = Decoder()
     #     matrixMultiplicative = decoder.convertBinaryToMatrix("0001100110110110")
