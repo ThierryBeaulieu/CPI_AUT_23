@@ -67,11 +67,31 @@ class Decoder:
 
     def applyTranspose(self, binaryMatrix, permutationMatrix):
         return np.dot(binaryMatrix, permutationMatrix)
-       
+    
+    def convertToAscii(self, binaryMatrix):
+        if len(binaryMatrix) % 2 != 0:
+            raise Exception("Error, impossible to convert binary to ascii")
+        
+        asciiChars = []
+        asciiChar = ""
+        i = 0
+        while i < len(binaryMatrix):
+            for binaryValue in binaryMatrix[i]:
+                asciiChar = asciiChar + str(binaryValue)
+            if i % 2 == 1:
+                asciiChars.append(asciiChar)
+                asciiChar = ""
+            i += 1
+        
+        return asciiChars
+
+
     def decode(self, input_string):
         binaryAndBase17 = self.get_binary_and_base17(input_string)
         base17InDecimalFormat = self.convertToIntermediateFormat(binaryAndBase17[1])
         base17InBinaryFormat = self.convertDecimalToBinary(base17InDecimalFormat)
+
+    
 
 if __name__ == "__main__":
     decoder = Decoder()

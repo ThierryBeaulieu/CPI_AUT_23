@@ -90,7 +90,7 @@ class TestDecodeFunction(unittest.TestCase):
         decoder = Decoder()
         binaryMatrix = np.array([[1,0,0,0], [0,0,0,1], [1,0,0,0], [0,1,0,1]])
         result = decoder.convertToAscii(binaryMatrix)
-        self.assertTrue(result, "ab")
+        self.assertTrue(result, ["10000001", "10000101"])
 
     # def test_transpose_matrix(self):
     #     decoder = Decoder()
