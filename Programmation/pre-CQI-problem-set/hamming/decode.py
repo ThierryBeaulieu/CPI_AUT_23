@@ -1,43 +1,46 @@
 class Decoder:
 
     def __init__(self):
+        self.base10 = 10
         self.base_17_to_binary = {
-            "0": "0000",
-            "1": "0001",
-            "2": "0010",
-            "3": "0011",
-            "4": "0100",
-            "5": "0101",
-            "6": "0110",
-            "7": "0111",
-            "8": "1000",
-            "9": "1001",
-            "a": "1010",
-            "b": "1011",
-            "c": "1100",
-            "d": "1101",
-            "e": "1110",
-            "f": "1111",
-            "CQI": "10000"
+            "0": 0,
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 7,
+            "8": 8,
+            "9": 9,
+            "a": 10,
+            "b": 11,
+            "c": 12,
+            "d": 13,
+            "e": 14,
+            "f": 15,
+            "CQI": 16,
             }
         
     def get_binary_and_base17(self, input_string):
         return input_string.split(":")
     
-    def convertToDecimal(self, base17):
-        decimal = 0
+    def convertToIntermediateFormat(self, input_string):
+        newFormat = ""
         i = 0
-        while i < len(base17):
-            if base17[i:i+3] == "CQI":
-                decimal = decimal + base17[i:i+3]
+        while i < len(input_string):
+            if input_string[i:i+3] == "CQI":
+                newFormat = newFormat + "g"
                 i += 3
             else:
-                decimal = decimal + base17[i]
+                newFormat = newFormat + input_string[i]
                 i += 1
-        return decimal
+        return newFormat
+
        
     def decode(self, input_string):
         binaryAndBase17 = self.get_binary_and_base17(input_string)
+        base17ToParse = self.convertToIntermediateFormat(binaryAndBase17[1])
 
 
 
