@@ -92,6 +92,13 @@ class TestDecodeFunction(unittest.TestCase):
         result = decoder.convertMatrixToStringsOfBinary(binaryMatrix)
         self.assertTrue(result, ["10000001", "10000101"])
 
+    def test_convert_strings_of_binary_to_ascii(self):
+        decoder = Decoder()
+        binaryStrings =  ["10000001", "10000101"]
+        result = decoder.convertStringToAscii(binaryStrings)
+        self.assertTrue(result, ['a', 'e'])
+
+
     # def test_transpose_matrix(self):
     #     decoder = Decoder()
     #     matrixMultiplicative = decoder.convertBinaryToMatrix("0001100110110110")

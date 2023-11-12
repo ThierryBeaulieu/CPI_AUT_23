@@ -85,12 +85,18 @@ class Decoder:
         
         return asciiChars
 
+    def convertStringToAscii(self, input_array_of_strings):
+        asciiChars = []
+        for binary in input_array_of_strings:
+            decimal_value = int(binary, 2)
+            ascii_character = chr(decimal_value)
+            asciiChars.append(ascii_character)
+        return ascii_character
 
     def decode(self, input_string):
         binaryAndBase17 = self.get_binary_and_base17(input_string)
         base17InDecimalFormat = self.convertToIntermediateFormat(binaryAndBase17[1])
         base17InBinaryFormat = self.convertDecimalToBinary(base17InDecimalFormat)
-
     
 
 if __name__ == "__main__":
