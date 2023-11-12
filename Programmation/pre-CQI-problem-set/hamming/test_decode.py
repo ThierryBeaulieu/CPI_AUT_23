@@ -71,13 +71,21 @@ class TestDecodeFunction(unittest.TestCase):
         matrix_array = np.array([[0,0,0,1], [1,0,0,1], [1,0,1,1], [0,1,1,0], [1,0,1,1], [0,1,1,0]])
         self.assertTrue(np.array_equal(result, matrix_array))
 
-    def test_apply_transpose(self):
+    def test_apply_transpose_1(self):
         decoder = Decoder()
         binaryMatrix = np.array([[1,1,0,1], [0,1,0,1], [0,1,1,0], [0,0,0,1]])
         transpose = np.array([[1,0,0,0], [0,1,0,0], [0,0,1,0], [0,0,0,1]])
         result = decoder.applyTranspose(binaryMatrix, transpose)
         self.assertTrue(np.array_equal(result, binaryMatrix))
 
+
+    def test_apply_transpose_2(self):
+        decoder = Decoder()
+        binaryMatrix = np.array([[0,0,0,1], [1,0,0,1], [1,0,1,1]])
+        transpose = np.array([[-1,1,0,0], [0,1,-1,1], [0,-1,1,0], [1,0,0,0]])
+        resultExpected = np.array([[1,0,0,0], [0,1,0,0], [0,0,1,0]])
+        result = decoder.applyTranspose(binaryMatrix, transpose)
+        self.assertTrue(np.array_equal(result, resultExpected))
 
     # def test_transpose_matrix(self):
     #     decoder = Decoder()
