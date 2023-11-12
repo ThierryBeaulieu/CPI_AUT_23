@@ -97,10 +97,41 @@ class Decoder:
         return ''.join(arrayOfAsciis)
 
     def decode(self, input_string):
+        # ['0100000100101000', 'ab082c29CQI']
         binaryAndBase17 = self.get_binary_and_base17(input_string)
-        base17InDecimalFormat = self.convertToIntermediateFormat(binaryAndBase17[1])
-        base17InBinaryFormat = self.convertDecimalToBinary(base17InDecimalFormat)
-    
+
+        # ab082c29CQI -> ab082c29g
+        base17IntermediateFormat = self.convertToIntermediateFormat(binaryAndBase17[1])
+
+        # ab082c29g -> 74282885414
+        base17InBinaryFormat = self.convertToDecimal(base17IntermediateFormat)
+
+        # 74282885414 -> 1000101001011100110101110000100100110
+        binaryBase2Format = self.convertDecimalToBinary(base17InBinaryFormat)
+
+        # 0100 0001 0010 1000 -> [[-1,1,0,0], [0,1,-1,1], [0,-1,1,0], [1,0,0,0]]
+        permutationMatrix = self.convertBinaryToPermutationMatrix(binaryAndBase17[0])
+
+        # 1000 1010 0101 1....0001 0010 0110 -> [[1,0,0,0], [1,0,1,0], ...]
+        resultingMatrix = self.convertBinaryToMatrix(binaryBase2Format)
+
+        # [[-1,1,0,0] ...] * [[1,0,0,0], ...] = [[1,0,1,0], [0,1..]]
+        baseMatrix = self.applyTranspose(resultingMatrix, permutationMatrix)
+
+        # [[1,0,1,0], [0,1..]] = ['1010','01...]
+        binariesStrignified = self.convertMatrixToStringsOfBinary(baseMatrix)
+
+        # ['1010','01...] -> ['a', 'b' ..]
+        asciis = self.convertStringToAscii(binariesStrignified)
+
+        # ['a', 'b' ..] -> 'ab'
+        return self.concatenate(asciis)
+
+
+
+
+
+
 
 if __name__ == "__main__":
     decoder = Decoder()

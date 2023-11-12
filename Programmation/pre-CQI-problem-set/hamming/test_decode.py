@@ -103,20 +103,11 @@ class TestDecodeFunction(unittest.TestCase):
         binaryStrings = ['a', 'e']
         result = decoder.concatenate(binaryStrings)
         self.assertTrue(result, "ae")
-
-
-    # def test_transpose_matrix(self):
-    #     decoder = Decoder()
-    #     matrixMultiplicative = decoder.convertBinaryToMatrix("0001100110110110")
-    #     binaryToDecode = decoder.convertBinaryToMatrix("0001100110110110")
-    #     # decoder.
-    #     self.assertEqual(result,  ["0001", "1001", "1011", "0110"])
-    
-    
-    # def test_decode_Hello_world(self):
-    #     decoder = Decoder()
-    #     result = decoder.decode("0100000100101000:11d48ed9dCQIc6ab6c6147d845e586da03b9")
-    #     self.assertEqual(result, "Bonjour le monde!")
+     
+    def test_decode_Hello_world(self):
+        decoder = Decoder()
+        result = decoder.decode("0100000100101000:11d48ed9dCQIc6ab6c6147d845e586da03b9")
+        self.assertEqual(result, "Bonjour le monde!")
 
 if __name__ == '__main__':
     unittest.main()
