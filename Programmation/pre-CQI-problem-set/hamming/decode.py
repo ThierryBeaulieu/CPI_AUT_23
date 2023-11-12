@@ -43,7 +43,7 @@ class Decoder:
     def convertToDecimal(self, input_string):
         return sum(self.base_17_to_decimal[value] * (self.base17 ** i) for i, value in enumerate(input_string[::-1]))
 
-    def convertDecimalToBinary(self, binaryInput):
+    def convertDecimalToBinary(self, binaryInput: str):
         binaryResult = ""
 
         if binaryInput == 0:
@@ -55,16 +55,18 @@ class Decoder:
             binaryInput = binaryInput // 2
         return binaryResult
     
-    def convertBinaryToPermutationMatrix(self, binary):
+    def convertBinaryToPermutationMatrix(self, binary: str):
         rowAndColumnLength = 4
         matrix = [[binary[i:i + rowAndColumnLength]] for i in range(0, len(binary), rowAndColumnLength)]
         return np.array(matrix)
     
-    def convertBinaryToMatrix(self, binary):
+    def convertBinaryToMatrix(self, binary: str):
         rowAndColumnLength = 4
         matrix = [binary[i:i + rowAndColumnLength] for i in range(0, len(binary), rowAndColumnLength)]
         return np.array(matrix)
 
+    def applyTranspose(self, binaryMatrix, permutationMatrix):
+        return np.dot(binaryMatrix, permutationMatrix)
        
     def decode(self, input_string):
         binaryAndBase17 = self.get_binary_and_base17(input_string)
