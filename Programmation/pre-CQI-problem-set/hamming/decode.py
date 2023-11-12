@@ -1,8 +1,10 @@
+import numpy as np
+
 class Decoder:
 
     def __init__(self):
         self.base17 = 17
-        self.base_17_to_binary = {
+        self.base_17_to_decimal = {
             "0": 0,
             "1": 1,
             "2": 2,
@@ -39,13 +41,7 @@ class Decoder:
     
     # accepts only the strings already converted "CQI" -> "g"
     def convertToDecimal(self, input_string):
-        decimalValue = 0
-        i = 0
-        while i < len(input_string):
-                index = len(input_string) -1 - i
-                decimalValue = decimalValue + self.base_17_to_binary[input_string[i]] * (self.base17 ** index) 
-                i += 1
-        return decimalValue
+        return sum(self.base_17_to_decimal[digit] * 17**i for i, digit in enumerate(input_string[::-1]))
 
     def convertToBinary(self, inputString):
          return "0"
