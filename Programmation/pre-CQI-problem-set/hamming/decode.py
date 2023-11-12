@@ -4,6 +4,7 @@ import math
 class Decoder:
 
     def __init__(self):
+        self.matrixWidth = 0
         self.base17 = 17
         self.base_17_to_decimal = {
             "0": 0,
@@ -57,8 +58,8 @@ class Decoder:
         return binaryResult
     
     def convertBinaryToPermutationMatrix(self, binary: str):
-        rowAndColumnLength = int(math.sqrt(len(binary)))
-        matrix = [[int(binary[i + j]) for j in range(rowAndColumnLength)] for i in range(0, len(binary), rowAndColumnLength)]
+        self.matrixWidth = int(math.sqrt(len(binary)))
+        matrix = [[int(binary[i + j]) for j in range(self.matrixWidth)] for i in range(0, len(binary), self.matrixWidth)]
         return np.array(matrix)
     
     def convertBinaryToMatrix(self, binary: str):
